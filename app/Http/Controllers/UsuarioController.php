@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -64,5 +66,37 @@ class UsuarioController extends Controller
     public function destroy(Usuario $usuario)
     {
         //
+    }
+
+    public function login(Request $request)
+    {
+        // Validar los datos de entrada
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:6',
+        ]);
+    
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+    
+        // Intentar autenticar al usuario
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+            // Autenticación exitosa
+            return redirect()->route('inicio'); // Redirigir a la página de inicio u otra página
+        } else {
+            // Autenticación fallida
+            return redirect()->back()->with('error', 'Credenciales incorrectas.')->withInput();
+        }
+    }
+
+    public function sesion()
+    { 
+        return view('usuarios.login');//carga la vista de iniciar sesion
+    }
+
+    public function volver()
+    {
+        return view('inicio');
     }
 }

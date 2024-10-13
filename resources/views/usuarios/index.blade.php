@@ -25,7 +25,7 @@
                     <th scope="row">{{ $usuario->id }}</th>
                     <td>{{ $usuario->nombre }}</td>
                     <td>{{ $usuario->email }}</td>
-                    <td>{{ $usuario->created_at }}</td>
+                    <td>{{ $usuario->rol }}</td>
                 </tr>
                 @endforeach
             </tbody>

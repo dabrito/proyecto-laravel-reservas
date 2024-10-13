@@ -13,9 +13,9 @@
         <img src="{{ asset('images/restaurantebuenavista.webp') }}" alt="Restaurante Buenavista">
     </div>
     <div class="content">
-        <h1>Bienvenidos a las reservas del restaurante</h1>
-        <button class="btn btn-primary btn-lg">Login</button> <!-- Agregar btn-lg -->
-        <a href="{{ route('usuarios.create') }}" class="btn btn-secondary btn-lg">Registrarse</a> <!-- Agregar btn-lg -->
+        <h1>Bienvenido a las reservas del restaurante</h1>
+        <a href="{{ route('usuarios.sesion') }}" class="btn btn-primary btn-lg">Login</a>
+        <a href="{{ route('usuarios.create') }}" class="btn btn-secondary btn-lg">Registrarse</a> 
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
