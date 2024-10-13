@@ -15,6 +15,10 @@ Route::get('/', function () {
 Route::get('/usuarios/sesion', [UsuarioController::class, 'sesion'])->name('usuarios.sesion');
 Route::post('/usuarios/login', [UsuarioController::class, 'login'])->name('usuarios.login');
 
+Route::get('/usuarios/crearCliente', [UsuarioController::class, 'crearCliente'])->name('usuarios.crearCliente');
+Route::post('/usuarios/storeCliente', [UsuarioController::class, 'storeCliente'])->name('usuarios.storeCliente');
+Route::get('/usuarios/verClientes', [UsuarioController::class, 'verClientes'])->name('usuarios.verClientes');
+
 Route::get('/inicio', [UsuarioController::class, 'volver'])->name('inicio');
 
 

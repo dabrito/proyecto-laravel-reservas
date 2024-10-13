@@ -9,7 +9,7 @@
 <body>
     <div class="container mt-5">
         <h1>Crear Nuevo Usuario</h1>
-        <form action="{{ route('usuarios.store') }}" method="POST">
+        <form action="{{ route('usuarios.storeCliente') }}" method="POST">
             @csrf
             <!-- Nombre del usuario -->
             <div class="form-group mb-3">
@@ -28,10 +28,10 @@
             </div>
             <div class="form-group mb-3">
                 <label for="rol" class="form-label">Rol</label>
-                <input type="text" name="rol" id="rol" class="form-control" placeholder="Ingresa el rol del usuario" value="host" readonly>
+                <input type="text" name="rol" id="rol" class="form-control" placeholder="Ingresa el rol del usuario" value="cliente" readonly>
             </div>
             <button type="submit" class="btn btn-primary">Guardar Usuario</button>
-            <a href="{{ route('inicio') }}" class="btn btn-secondary">Volver</a>
+            <a href="{{ route('reservas.index') }}" class="btn btn-secondary">Volver</a>
         </form>
     </div>
 

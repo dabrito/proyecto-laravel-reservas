@@ -1,1 +1,0 @@
-<h1>Se crea una nueva reserva</h1>

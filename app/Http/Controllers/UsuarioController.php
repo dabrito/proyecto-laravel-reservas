@@ -33,7 +33,7 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         Usuario::create($request->all()); //creando modelo de usuario
-        return redirect('usuarios')->with('success', 'Usuario creado satisfactoriamente');
+        return redirect('inicio')->with('success', 'Usuario creado satisfactoriamente');
     }
 
     /**
@@ -89,7 +89,7 @@ class UsuarioController extends Controller
             }
             else if($user->rol === 'host')
             {
-                return redirect()->route('reservas.new');
+                return redirect()->route('reservas.index');
             }
         } else {
             // Autenticación fallida
@@ -106,4 +106,24 @@ class UsuarioController extends Controller
     {
         return view('inicio');
     }
+
+    public function crearCliente()
+    {
+        return view('usuarios.newCliente');
+    }
+
+    public function storeCliente(Request $request)
+    {
+        Usuario::create($request->all());
+        return redirect()->route('reservas.create')->with('success', 'Usuario cliente creado satisfactoriamente');
+    }
+
+    public function verClientes()
+    {
+        $usuarios = DB::table('usuarios')
+                      ->where('rol', 'cliente')
+                      ->get();
+        return view('usuarios.clientesTable', ['usuarios' => $usuarios]);
+    }
+
 }
