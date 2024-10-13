@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\ReservaController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -19,6 +20,11 @@ Route::get('/inicio', [UsuarioController::class, 'volver'])->name('inicio');
 
 // Rutas de recursos para usuarios
 Route::resource('usuarios', UsuarioController::class);
+// Rutas de recursos para reservas
+Route::resource('reservas', ReservaController::class);
+
+
+
 
 
 

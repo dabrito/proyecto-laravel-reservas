@@ -82,8 +82,15 @@ class UsuarioController extends Controller
     
         // Intentar autenticar al usuario
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Autenticación exitosa
-            return redirect()->route('inicio'); // Redirigir a la página de inicio u otra página
+            $user = Auth::user();
+            if ($user->rol === 'cliente') 
+            {
+                return redirect()->route('inicio');
+            }
+            else if($user->rol === 'host')
+            {
+                return redirect()->route('reservas.new');
+            }
         } else {
             // Autenticación fallida
             return redirect()->back()->with('error', 'Credenciales incorrectas.')->withInput();
