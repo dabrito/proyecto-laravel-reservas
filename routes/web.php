@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\ReservaController;
+use App\Http\Controllers\MesaController;
+use App\Http\Controllers\TipoMesaController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -26,6 +28,10 @@ Route::get('/inicio', [UsuarioController::class, 'volver'])->name('inicio');
 Route::resource('usuarios', UsuarioController::class);
 // Rutas de recursos para reservas
 Route::resource('reservas', ReservaController::class);
+// Rutas de recursos para mesas
+Route::resource('mesas', MesaController::class);
+// Rutas de recursos para tiposmesas
+Route::resource('tiposmesas', TipoMesaController::class);
 
 
 

@@ -31,7 +31,7 @@
                 <input type="text" name="rol" id="rol" class="form-control" placeholder="Ingresa el rol del usuario" value="cliente" readonly>
             </div>
             <button type="submit" class="btn btn-primary">Guardar Usuario</button>
-            <a href="{{ route('reservas.index') }}" class="btn btn-secondary">Volver</a>
+            <a href="{{ route('usuarios.verClientes') }}" class="btn btn-secondary">Volver</a>
         </form>
     </div>
 

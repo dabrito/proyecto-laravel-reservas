@@ -9,7 +9,7 @@ class TipoMesa extends Model
 {
   use HasFactory;
 
-  protected $table = 'tipos_mesa';
+  protected $table = 'tipos_mesas';
 
   protected $fillable = [
     'nombre_tipo',

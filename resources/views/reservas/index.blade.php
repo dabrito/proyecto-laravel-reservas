@@ -10,11 +10,9 @@
     <div class="container mt-4 position-relative">
         <h1>Se crea una nueva reserva</h1>
         <hr>
-        <a href="{{ route('usuarios.crearCliente') }}" class="btn btn-secondary">Crear Cliente</a>
-        <a href="{{ route('usuarios.verClientes') }}" class="btn btn-secondary">Ver Cliente</a>
+        <a href="{{ route('usuarios.verClientes') }}" class="btn btn-secondary">Clientes</a>
+        <a href="{{ route('mesas.index') }}" class="btn btn-secondary">Mesas</a>
         <a href="{{ route('inicio') }}" class="btn btn-primary position-absolute" style="right: 0;">volver a inicio</a>
-
-        
     </div>
 
     <!-- Bootstrap JS and dependencies -->
