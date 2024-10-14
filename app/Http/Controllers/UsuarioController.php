@@ -115,7 +115,7 @@ class UsuarioController extends Controller
     public function storeCliente(Request $request)
     {
         Usuario::create($request->all());
-        return redirect()->route('reservas.create')->with('success', 'Usuario cliente creado satisfactoriamente');
+        return redirect()->route('usuarios.verClientes')->with('success', 'Usuario cliente creado satisfactoriamente');
     }
 
     public function verClientes()
@@ -125,5 +125,6 @@ class UsuarioController extends Controller
                       ->get();
         return view('usuarios.clientesTable', ['usuarios' => $usuarios]);
     }
+
 
 }
