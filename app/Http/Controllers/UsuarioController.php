@@ -19,6 +19,7 @@ class UsuarioController extends Controller
         return view('usuarios.index', ['usuarios' => $usuarios]);
     }
 
+
     /**
      * Show the form for creating a new resource.
      */
@@ -85,7 +86,7 @@ class UsuarioController extends Controller
             $user = Auth::user();
             if ($user->rol === 'cliente') 
             {
-                return redirect()->route('inicio');
+                return redirect()->route('reservas.indexClientes');
             }
             else if($user->rol === 'host')
             {
