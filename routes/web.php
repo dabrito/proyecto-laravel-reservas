@@ -21,7 +21,10 @@ Route::get('/usuarios/crearCliente', [UsuarioController::class, 'crearCliente'])
 Route::post('/usuarios/storeCliente', [UsuarioController::class, 'storeCliente'])->name('usuarios.storeCliente');
 Route::get('/usuarios/verClientes', [UsuarioController::class, 'verClientes'])->name('usuarios.verClientes');
 
+
 Route::get('/inicio', [UsuarioController::class, 'volver'])->name('inicio');
+
+Route::get('/reservas/clientes', [ReservaController::class, 'indexClientes'])->name('reservas.indexClientes');
 
 
 // Rutas de recursos para usuarios

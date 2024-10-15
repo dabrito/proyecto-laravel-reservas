@@ -27,6 +27,18 @@ class ReservaController extends Controller
         return view('reservas.index', compact('reservas'));
     }
 
+    public function indexClientes()
+    {
+        // Obtener el usuario autenticado
+        $usuario = auth()->user();
+
+        // Obtener las reservas del usuario
+        $reservas = $usuario->reservas; // Asegúrate de tener la relación definida en el modelo Usuario
+
+        // Pasar las reservas a la vista
+        return view('reservas.indexClientes', compact('reservas'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
