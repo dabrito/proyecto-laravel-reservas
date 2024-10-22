@@ -31,7 +31,7 @@ class MesaController extends Controller
     public function store(Request $request)
     {
         Mesa::create($request->all()); //creando modelo de mesa
-        return redirect('reservas.index')->with('success', 'mesa creada satisfactoriamente');
+        return redirect()->route('reservas.index')->with('success', 'Mesa creada con éxito');
     }
 
     /**

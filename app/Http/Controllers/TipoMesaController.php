@@ -31,7 +31,7 @@ class TipoMesaController extends Controller
     public function store(Request $request)
     {
         TipoMesa::create($request->all()); //creando modelo de tipomesa
-        return redirect('tiposmesas.index')->with('success', 'Tipo de mesa creado satisfactoriamente');
+        return redirect()->route('tiposmesas.index')->with('success', 'Mesa creada con éxito');
     }
 
     /**
