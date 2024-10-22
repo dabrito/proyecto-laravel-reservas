@@ -7,13 +7,32 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="container mt-4 position-relative">
+    <div class="container mt-4">
+        <!-- Menú de navegación -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+            <a class="navbar-brand" href="#">Reservas</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('usuarios.verClientes') }}">Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('mesas.index') }}">Mesas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('reservas.create') }}">Crear Reserva</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('inicio') }}">Volver a Inicio</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
         <h1>Se crea una nueva reserva</h1>
-        <hr>
-        <a href="{{ route('usuarios.verClientes') }}" class="btn btn-secondary">Clientes</a>
-        <a href="{{ route('mesas.index') }}" class="btn btn-secondary">Mesas</a>
-        <a href="{{ route('reservas.create') }}" class="btn btn-secondary">Crear Reserva</a>
-        <a href="{{ route('inicio') }}" class="btn btn-primary position-absolute" style="right: 0;">volver a inicio</a>
         <hr>
 
         <!-- Formulario de búsqueda -->
@@ -27,7 +46,7 @@
         </form>
 
         <!-- Tabla para mostrar las reservas -->
-        <table class="table">
+        <table class="table table-bordered">
             <thead>
                 <tr>
                     <th>ID Cliente</th>
@@ -35,6 +54,8 @@
                     <th>Fecha de la Reserva</th>
                     <th>Hora de la Reserva</th>
                     <th>Número de Personas</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
                 </tr>
             </thead>
             <tbody>
@@ -45,6 +66,14 @@
                     <td>{{ $reserva->fecha_reserva }}</td>
                     <td>{{ $reserva->hora_reserva }}</td>
                     <td>{{ $reserva->numero_personas }}</td>
+                    <td><a href="{{ route('reserva.edit', $reserva->id) }}" class="btn btn-warning btn-sm">Editar</a></td>
+                    <td>
+                        <form action="{{ route('reservas.destroy', $reserva->id) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta reserva?');">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                        </form>
+                    </td>
                 </tr>
                 @endforeach
             </tbody>

@@ -12,7 +12,7 @@ class ReservaController extends Controller
      */
     public function index(Request $request)
     {
-        // Obtener las últimas 3 reservas
+        // Obtener todas las reservas
         $query = Reserva::query();
 
         // Si hay un término de búsqueda, filtrar las reservas
@@ -21,11 +21,14 @@ class ReservaController extends Controller
                 ->orWhere('mesa_id', 'like', '%' . $request->search . '%');
         }
 
-        $reservas = $query->latest()->take(3)->get();
+        // Obtener las reservas, ya sea con todos los registros o aplicar paginación
+        // Puedes usar `paginate()` para manejar muchas reservas de forma más eficiente
+        $reservas = $query->latest()->get(); // O usar ->paginate(10) si prefieres paginar
 
         // Pasar las reservas a la vista
         return view('reservas.index', compact('reservas'));
     }
+
 
     public function indexClientes()
     {
@@ -93,25 +96,51 @@ class ReservaController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Reserva $reserva)
+    public function edit($id)
     {
-        //
+        $reserva = Reserva::find($id);  // Asegúrate de encontrar la reserva por ID
+        return view('reservas.update', compact('reserva'));
     }
+
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, Reserva $reserva)
     {
-        //
+        $request->validate([
+            'usuario_id' => 'required|integer',
+            'mesa_id' => 'required|integer',
+            'fecha_reserva' => 'required|date',
+            'hora_reserva' => 'required',
+            'numero_personas' => 'required|integer',
+        ]);
+
+        // Actualiza la reserva
+        $reserva->update($request->all());
+        
+        // Redirige a la página de índice con un mensaje de éxito
+        return redirect()->route('reservas.index')->with('success', 'Reserva actualizada correctamente.');
     }
+
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Reserva $reserva)
+    public function destroy($id)
     {
-        //
+        // Encuentra la reserva por su ID y elimínala
+        $reserva = Reserva::findOrFail($id);
+        $reserva->delete();
+
+        // Redirige a la página de reservas con un mensaje de éxito
+        return redirect()->route('reservas.index')->with('success', 'Reserva eliminada correctamente.');
     }
+
+    
+    
+
 
 }
