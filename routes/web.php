@@ -27,6 +27,14 @@ Route::get('/inicio', [UsuarioController::class, 'volver'])->name('inicio');
 Route::get('/reservas/clientes', [ReservaController::class, 'indexClientes'])->name('reservas.indexClientes');
 
 
+
+Route::get('reservas/{id}/edit', [ReservaController::class, 'edit'])->name('reserva.edit');
+Route::put('/reservas/{reserva}', 'ReservaController@update')->name('reservas.update');
+Route::delete('reservas/{id}', [ReservaController::class, 'destroy'])->name('reserva.destroy');
+
+
+
+
 // Rutas de recursos para usuarios
 Route::resource('usuarios', UsuarioController::class);
 // Rutas de recursos para reservas
