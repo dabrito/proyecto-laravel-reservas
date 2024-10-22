@@ -38,7 +38,7 @@
                     <th scope="col">#</th>
                     <th scope="col">Número de Mesa</th>
                     <th scope="col">Capacidad</th>
-                    <th scope="col">Tipo de Mesa ID</th>
+                    <th scope="col">Tipo de Mesa</th>
                     <th scope="col">Disponible</th>
                     <th scope="col">Creada</th>
                     <th scope="col">Actualizada</th>
@@ -50,7 +50,7 @@
                     <th scope="row">{{ $mesa->id }}</th>
                     <td>{{ $mesa->numero_mesa }}</td>
                     <td>{{ $mesa->capacidad }}</td>
-                    <td>{{ $mesa->tipo_id }}</td>
+                    <td>{{ $mesa->tipo->nombre_tipo}}</td>
                     <td>{{ $mesa->disponible }}</td>
                     <td>{{ $mesa->created_at }}</td>
                     <td>{{ $mesa->updated_at }}</td>

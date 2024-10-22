@@ -15,7 +15,7 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th>ID Cliente</th>
+                    <th>Cliente</th>
                     <th>Número Mesa</th>
                     <th>Fecha de la Reserva</th>
                     <th>Hora de la Reserva</th>
@@ -30,8 +30,8 @@
                 @else
                     @foreach($reservas as $reserva)
                     <tr>
-                        <td>{{ $reserva->usuario_id }}</td>
-                        <td>{{ $reserva->mesa_id }}</td>
+                        <td>{{ $reserva->usuario->nombre  }}</td>
+                        <td>{{ $reserva->mesa->numero_mesa }}</td>
                         <td>{{ $reserva->fecha_reserva }}</td>
                         <td>{{ $reserva->hora_reserva }}</td>
                         <td>{{ $reserva->numero_personas }}</td>

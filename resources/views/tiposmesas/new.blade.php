@@ -22,7 +22,7 @@
                 <input type="text" name="descripcion" id="descripcion" class="form-control" placeholder="Ingresa el capacidad de la mesa" required>
             </div>
             <button type="submit" class="btn btn-primary">Guardar tipo de mesa</button>
-            <a href="{{ route('tiposmesas.index') }}" class="btn btn-secondary">Volver</a>
+            <a href="{{ route('tiposmesas.index')}}" class="btn btn-secondary">Volver</a>
         </form>
     </div>
 

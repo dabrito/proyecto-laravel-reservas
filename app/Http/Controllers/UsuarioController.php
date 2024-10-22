@@ -115,7 +115,14 @@ class UsuarioController extends Controller
 
     public function storeCliente(Request $request)
     {
-        Usuario::create($request->all());
+      $request->validate([
+        'nombre' => 'required|string|max:255',
+        'email' => 'required|email|unique:usuarios',
+        'password' => 'required|min:6',
+        // otros campos según sea necesario
+    ]);
+
+    Usuario::create($request->all());
         return redirect()->route('usuarios.verClientes')->with('success', 'Usuario cliente creado satisfactoriamente');
     }
 
