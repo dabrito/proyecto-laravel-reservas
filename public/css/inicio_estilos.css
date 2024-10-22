@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+    position: relative; /* Permite el uso de posicionamiento absoluto en los hijos */
+    overflow: hidden; /* Oculta cualquier desbordamiento */
+}
+.background {
+    position: absolute; /* Permite que la imagen ocupe todo el contenedor */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Coloca la imagen detrás del contenido */
+}
+.background img {
+    width: 100%; /* Ocupa el 100% del contenedor */
+    height: 100%; /* Ocupa el 100% del contenedor */
+    object-fit: cover; /* Cubre el contenedor y recorta los lados si es necesario */
+    filter: blur(8px); /* Difumina la imagen */
+}
+.content {
+    position: absolute; /* Permite que el contenido se superponga */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta la posición para centrar */
+    z-index: 2; /* Asegura que el contenido esté por delante */
+    text-align: center; /* Centra el texto */
+    color: white; /* Color del texto para que sea visible */
+}
+.button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px; /* Agrega un borde redondeado */
+    transition: background-color 0.3s; /* Transición para efecto hover */
+}
+.button:hover {
+    background-color: #f0f0f0; /* Color de fondo al pasar el mouse */
+}
