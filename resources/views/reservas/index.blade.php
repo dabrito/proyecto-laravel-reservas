@@ -32,7 +32,7 @@
             </div>
         </nav>
 
-        <h1>Se crea una nueva reserva</h1>
+        <h1>Reservas</h1>
         <hr>
 
         <!-- Formulario de búsqueda -->
@@ -49,8 +49,9 @@
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>ID Cliente</th>
+                    <th>ID Usuario</th>
                     <th>Numero Mesa</th>
+                    <th>Nombre Cliente</th>
                     <th>Fecha de la Reserva</th>
                     <th>Hora de la Reserva</th>
                     <th>Número de Personas</th>
@@ -63,6 +64,7 @@
                 <tr>
                     <td>{{ $reserva->usuario_id }}</td>
                     <td>{{ $reserva->mesa_id }}</td>
+                    <td>{{ $reserva->nombre }}</td>
                     <td>{{ $reserva->fecha_reserva }}</td>
                     <td>{{ $reserva->hora_reserva }}</td>
                     <td>{{ $reserva->numero_personas }}</td>

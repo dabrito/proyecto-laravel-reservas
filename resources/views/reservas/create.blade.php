@@ -14,14 +14,19 @@
         <form action="{{ route('reservas.store') }}" method="POST">
         @csrf
 
-            <div class="form-group">
-                <label for="usuario_id">Nombre Completo:</label>
-                <input type="number" name="usuario_id" class="form-control" placeholder="Ingrese nombre completo del cliente" required>
+             <div class="form-group">
+                <label for="mesa_id">ID Usuario:</label>
+                <input type="number" name="mesa_id" class="form-control" placeholder="Ingrese numero de mesa disponible" required>
             </div>
 
             <div class="form-group">
-                <label for="mesa_id">Mesa:</label>
+                <label for="mesa_id">Numero Mesa:</label>
                 <input type="number" name="mesa_id" class="form-control" placeholder="Ingrese numero de mesa disponible" required>
+            </div>
+
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="string" name="nombre" class="form-control" placeholder="Ingrese nombre completo del cliente" required>
             </div>
 
             <div class="form-group">

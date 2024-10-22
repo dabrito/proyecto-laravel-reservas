@@ -15,6 +15,7 @@ return new class extends Migration
       $table->id();
       $table->unsignedBigInteger('usuario_id');
       $table->unsignedBigInteger('mesa_id');
+      $table->string('nombre');
       $table->date('fecha_reserva');
       $table->time('hora_reserva');
       $table->unsignedInteger('numero_personas');
